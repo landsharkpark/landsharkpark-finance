@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+
+import Header from './components/Header'
+import Mortgagecalc from './components/Mortgagecalc'
+import About from './components/About'
+import Resources from './components/Resources'
+//import ReactHelp from './components/ReactHelp'
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Header />
+        <div className="container" style={{paddingTop: '75px'}}>
+          <Switch>
+            <Route exact path="/mortgagecalc" component= { Mortgagecalc } />
+            <Route exact path="/about" component= { About } />
+            <Route exact path="/resources" component= { Resources } />
+          </Switch>
+        </div>
+      </div>
+    </Router>    
   );
 }
 
 export default App;
+
+/*
+        <div className="container" style={{paddingTop: '75px'}}>
+          <Switch>
+            <Route exact path="/" component= { Sprints } />
+            <Route exact path="/reacthelp" component= { ReactHelp } />
+            <Route exact path="/about" component= { About } />
+            <Route exact path="/resources" component= { Resources } />
+          </Switch>
+        </div>
+*/
